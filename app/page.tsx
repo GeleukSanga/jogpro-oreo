@@ -160,7 +160,7 @@ export default function Home() {
 
       <section id="produk" className="relative py-24 bg-white text-gray-950">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-14">
+          <motion.div variants={fadeUp} initial="hidden" animate="show" viewport={{ once: true }} className="text-center mb-14">
             <p className="font-black text-pink-500 uppercase tracking-[.25em] text-xs mb-3">Pilih favoritmu</p>
             <h2 className="font-black leading-tight" style={{ fontSize: "clamp(2.2rem,6vw,4.6rem)", fontFamily: "var(--font-nunito)" }}>3 Produk Jogpro</h2>
             <p className="text-gray-500 text-lg mt-3">Klik detail produk untuk landing page khusus, atau langsung order via WhatsApp.</p>
@@ -168,7 +168,7 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {products.map((p, i) => (
-              <motion.article key={p.slug} variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: i * .1 }} whileHover={{ y: -10 }} className="group rounded-[2rem] overflow-hidden bg-white shadow-2xl border border-gray-100">
+              <motion.article key={p.slug} variants={scaleIn} initial="hidden" animate="show" viewport={{ once: true }} transition={{ delay: i * .1 }} whileHover={{ y: -10 }} className="group rounded-[2rem] overflow-hidden bg-white shadow-2xl border border-gray-100">
                 <div className={`relative h-72 bg-gradient-to-br ${p.gradient} p-4 overflow-hidden`}>
                   <div className="absolute top-4 left-4 z-10 rounded-full px-3 py-1 bg-yellow-300 text-black text-xs font-black">{p.emoji} {p.badge}</div>
                   <div className="absolute top-4 right-4 z-10 rounded-full px-3 py-1 bg-white text-black text-sm font-black">{p.price}</div>
@@ -192,17 +192,17 @@ export default function Home() {
 
       <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg,#0f0c29 0%,#302b63 55%,#24243e 100%)" }}>
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center mb-12">
+          <motion.div variants={fadeUp} initial="hidden" animate="show" viewport={{ once: true }} className="text-center mb-12">
             <h2 className="font-black mb-3" style={{ fontSize: "clamp(2rem,5vw,3.8rem)", fontFamily: "var(--font-nunito)" }}>Kenapa Belanja di Jogpro?</h2>
             <p className="text-white/55 text-lg">Aksesori kecil yang bikin barang harian lebih rapi, lucu, dan praktis.</p>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-6">{perks.map((perk, i) => <motion.div key={perk.title} variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: i * .1 }} className="rounded-3xl p-8 bg-white/10 border border-white/10 backdrop-blur"><div className="text-5xl mb-4">{perk.icon}</div><h3 className="text-2xl font-black mb-2" style={{ fontFamily: "var(--font-nunito)" }}>{perk.title}</h3><p className="text-white/70">{perk.desc}</p></motion.div>)}</div>
+          <div className="grid md:grid-cols-3 gap-6">{perks.map((perk, i) => <motion.div key={perk.title} variants={scaleIn} initial="hidden" animate="show" viewport={{ once: true }} transition={{ delay: i * .1 }} className="rounded-3xl p-8 bg-white/10 border border-white/10 backdrop-blur"><div className="text-5xl mb-4">{perk.icon}</div><h3 className="text-2xl font-black mb-2" style={{ fontFamily: "var(--font-nunito)" }}>{perk.title}</h3><p className="text-white/70">{perk.desc}</p></motion.div>)}</div>
         </div>
       </section>
 
       <section className="py-24 bg-white text-gray-950">
         <div className="max-w-5xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="rounded-[2rem] p-8 md:p-12 text-center text-white overflow-hidden relative" style={{ background: "linear-gradient(135deg,#00B4D8 0%,#7B2FBE 50%,#FF006E 100%)" }}>
+          <motion.div variants={fadeUp} initial="hidden" animate="show" viewport={{ once: true }} className="rounded-[2rem] p-8 md:p-12 text-center text-white overflow-hidden relative" style={{ background: "linear-gradient(135deg,#00B4D8 0%,#7B2FBE 50%,#FF006E 100%)" }}>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,230,0,.32),transparent_24%),radial-gradient(circle_at_85%_75%,rgba(255,255,255,.24),transparent_28%)]" />
             <div className="relative z-10">
               <h2 className="font-black leading-tight mb-4" style={{ fontSize: "clamp(2.2rem,6vw,4.2rem)", fontFamily: "var(--font-nunito)", textShadow: "3px 3px 0 rgba(0,0,0,.18)" }}>Mau order beberapa produk sekaligus?</h2>
