@@ -175,6 +175,7 @@ function Sparkles() {
 export default function GantunganTasPage() {
   const [nama, setNama] = useState("");
   const [selectedColor, setSelectedColor] = useState<ColorOption>(colorOptions[0]);
+  const [showNamaError, setShowNamaError] = useState(false);
 
   const namaClean = nama.trim().toUpperCase().replace(/[^A-Z0-9 ]/g, "");
   const hurufCount = namaClean.replace(/ /g, "").length;
@@ -311,7 +312,7 @@ export default function GantunganTasPage() {
               variants={fadeUp} initial="hidden" animate="show" transition={{ delay: 0.35 }}
             >
               <a
-                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=15000"
+                href="#preview-section"
                 className="inline-flex items-center gap-3 font-black text-white rounded-full px-8 py-4 shadow-2xl transition-transform hover:scale-105 active:scale-95"
                 style={{ background: "linear-gradient(135deg,#7c3aed,#db2777)", boxShadow: "0 10px 36px rgba(123,47,190,0.45)", fontFamily: "var(--font-nunito)" }}
               >
@@ -320,7 +321,7 @@ export default function GantunganTasPage() {
               <p className="text-center text-sm text-white/70 mt-3">
                 atau{" "}
                 <a
-                  href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=45000"
+                  href="#preview-section"
                   className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100"
                 >
                   bayar via QRIS 💳
@@ -400,7 +401,7 @@ export default function GantunganTasPage() {
       </section>
 
       {/* ═══════ CARA PESAN — INTERACTIVE ═══════ */}
-      <section className="py-24 bg-white">
+      <section id="preview-section" className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -436,15 +437,20 @@ export default function GantunganTasPage() {
               <div className="mb-6">
                 <label className="block text-sm font-black uppercase tracking-wider text-gray-700 mb-2">
                   ✏️ Step 1 — Ketik Namamu (maks. 10 huruf)
+                  <span className="ml-2 text-red-500 text-xs normal-case font-bold tracking-normal">* Wajib diisi</span>
                 </label>
                 <input
                   type="text"
                   value={nama}
-                  onChange={e => setNama(e.target.value.slice(0, 10))}
+                  onChange={e => { setNama(e.target.value.slice(0, 10)); setShowNamaError(false); }}
                   placeholder="Contoh: AYLA"
-                  className="w-full px-5 py-4 rounded-2xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none text-xl font-black uppercase tracking-widest transition-colors bg-white"
+                  className={`w-full px-5 py-4 rounded-2xl border-2 focus:outline-none text-xl font-black uppercase tracking-widest transition-colors bg-white ${showNamaError ? "border-red-400 bg-red-50 focus:border-red-500" : "border-gray-200 focus:border-purple-500"}`}
                   style={{ fontFamily: "var(--font-nunito)" }}
+                  id="input-nama"
                 />
+                {showNamaError && (
+                  <p className="text-red-500 text-sm font-bold mt-2">⚠️ Nama wajib diisi sebelum pesan!</p>
+                )}
               </div>
 
               {/* Step 2 — Pilih warna */}
@@ -545,26 +551,41 @@ export default function GantunganTasPage() {
                   )}
                 </div>
 
-                <a
-                  href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${totalHarga}&nama=${namaClean || ""}&warna=${selectedColor.name}`}
-                  className="flex items-center gap-2 font-black text-white rounded-full px-7 py-4 text-sm shadow-xl transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
-                  style={{
-                    background: "linear-gradient(135deg,#7c3aed,#db2777)",
-                    boxShadow: "0 8px 28px rgba(123,47,190,0.45)",
-                    fontFamily: "var(--font-nunito)",
-                  }}
-                >
-                  🔥 Pesan Sekarang
-                </a>
-                <p className="text-center text-xs text-gray-400 mt-2">
-                  atau{" "}
-                  <a
-                    href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${totalHarga}&nama=${namaClean || ""}&warna=${selectedColor.name}`}
-                    className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800"
+                {namaClean.length === 0 ? (
+                  <button
+                    onClick={() => { setShowNamaError(true); document.getElementById("input-nama")?.focus(); }}
+                    className="flex items-center gap-2 font-black text-white rounded-full px-7 py-4 text-sm shadow-xl whitespace-nowrap opacity-70 cursor-not-allowed"
+                    style={{
+                      background: "linear-gradient(135deg,#9ca3af,#6b7280)",
+                      fontFamily: "var(--font-nunito)",
+                    }}
                   >
-                    bayar via QRIS 💳
+                    ✏️ Isi nama dulu, Kak!
+                  </button>
+                ) : (
+                  <a
+                    href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${totalHarga}&nama=${namaClean}&warna=${selectedColor.name}`}
+                    className="flex items-center gap-2 font-black text-white rounded-full px-7 py-4 text-sm shadow-xl transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
+                    style={{
+                      background: "linear-gradient(135deg,#7c3aed,#db2777)",
+                      boxShadow: "0 8px 28px rgba(123,47,190,0.45)",
+                      fontFamily: "var(--font-nunito)",
+                    }}
+                  >
+                    🔥 Pesan Sekarang
                   </a>
-                </p>
+                )}
+                {namaClean.length > 0 && (
+                  <p className="text-center text-xs text-gray-400 mt-2">
+                    atau{" "}
+                    <a
+                      href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${totalHarga}&nama=${namaClean}&warna=${selectedColor.name}`}
+                      className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800"
+                    >
+                      bayar via QRIS 💳
+                    </a>
+                  </p>
+                )}
               </div>
             </div>
           </motion.div>
@@ -799,7 +820,7 @@ export default function GantunganTasPage() {
             </p>
 
             <motion.a
-              href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=15000"
+              href="#preview-section"
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 font-black text-lg rounded-full px-10 py-5 bg-white text-purple-700 shadow-2xl hover:bg-yellow-300 transition-colors"
@@ -810,7 +831,7 @@ export default function GantunganTasPage() {
             <p className="text-center text-sm text-white/60 mt-2">
               atau{" "}
               <a
-                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=15000"
+                href="#preview-section"
                 className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100"
               >
                 bayar via QRIS 💳
