@@ -717,8 +717,7 @@ export default function GantunganTasPage() {
                 {[
                   { label: "3 huruf", price: "Rp 15.000", chars: ["A", "Y", "U"] },
                   { label: "4 huruf", price: "Rp 20.000", chars: ["A", "Y", "U", "N"] },
-                  { label: "4 huruf", price: "Rp 60.000", chars: ["C", "A", "C", "A"] },
-                  { label: "5 huruf", price: "Rp 75.000", chars: ["N", "A", "D", "I", "A"] },
+                  { label: "5 huruf", price: "Rp 25.000", chars: ["N", "A", "D", "I", "A"] },
                 ].map((item) => (
                   <div
                     key={item.label}
