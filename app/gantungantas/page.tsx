@@ -587,42 +587,28 @@ export default function GantunganTasPage() {
                 Aslinya!
               </span>
             </h2>
-            <p className="text-gray-500 text-lg">Keycap cantik, warna-warni, bisa diklik sepuasnya 🎉</p>
+            <p className="text-gray-500 text-lg">Cocok digantung di semua jenis tas — ransel sekolah, handbag, tote, pouch, sampai kunci mobil! 🎒</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                src: "https://res.cloudinary.com/dejoaryri/image/upload/v1780453280/clickable_product1.jpg",
-                alt: "Clickable Gantungan Tas — Biru, Hitam, Pink",
-                caption: "🩵⚫🩷 Biru · Hitam · Pink",
-              },
-              {
-                src: "https://res.cloudinary.com/dejoaryri/image/upload/v1780453283/clickable_product2.jpg",
-                alt: "Clickable Gantungan Tas — 6 Pilihan Warna Tersedia",
-                caption: "✨ 6 Warna Tersedia!",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="rounded-3xl overflow-hidden shadow-xl relative group"
-              >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  className="absolute bottom-0 left-0 right-0 px-6 py-4"
-                  style={{ background: "linear-gradient(to top,rgba(0,0,0,0.7),transparent)" }}
-                >
-                  <p className="text-white font-black text-lg" style={{ fontFamily: "var(--font-nunito)" }}>{item.caption}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            variants={scaleIn} initial="hidden" whileInView="show" viewport={{ once: true }}
+            whileHover={{ y: -6, scale: 1.01 }}
+            className="rounded-3xl overflow-hidden shadow-2xl relative group max-w-3xl mx-auto"
+          >
+            <img
+              src="https://res.cloudinary.com/dejoaryri/image/upload/v1780465268/clickable_usage_collage.jpg"
+              alt="Clickable Gantungan Tas — Cocok untuk berbagai jenis tas"
+              className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              className="absolute bottom-0 left-0 right-0 px-6 py-5"
+              style={{ background: "linear-gradient(to top,rgba(0,0,0,0.75),transparent)" }}
+            >
+              <p className="text-white font-black text-lg" style={{ fontFamily: "var(--font-nunito)" }}>
+                🎒 Ransel · 👜 Handbag · 🛍️ Tote · 👛 Pouch · 🔑 Gantungan Kunci
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
