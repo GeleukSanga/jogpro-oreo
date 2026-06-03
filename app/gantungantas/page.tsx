@@ -320,6 +320,15 @@ export default function GantunganTasPage() {
                 <WhatsAppIcon className="w-5 h-5 text-green-600" />
                 Order Custom Sekarang!
               </a>
+              <p className="text-center text-sm text-white/70 mt-3">
+                atau{" "}
+                <a
+                  href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=45000"
+                  className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100"
+                >
+                  bayar via QRIS 💳
+                </a>
+              </p>
             </motion.div>
 
             <motion.div
@@ -542,6 +551,15 @@ export default function GantunganTasPage() {
                   <WhatsAppIcon className="w-5 h-5" />
                   Order Sekarang!
                 </a>
+                <p className="text-center text-xs text-gray-400 mt-2">
+                  atau{" "}
+                  <a
+                    href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${validCount * 15000}&nama=${namaClean || ""}&warna=${selectedColor.name}`}
+                    className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800"
+                  >
+                    bayar via QRIS 💳
+                  </a>
+                </p>
               </div>
             </div>
           </motion.div>
@@ -873,8 +891,17 @@ export default function GantunganTasPage() {
               <WhatsAppIcon className="w-6 h-6 text-green-500" />
               Order via WhatsApp Sekarang!
             </motion.a>
+            <p className="text-center text-sm text-white/60 mt-2">
+              atau{" "}
+              <a
+                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=45000"
+                className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100"
+              >
+                bayar via QRIS 💳
+              </a>
+            </p>
 
-            <p className="text-white/55 text-sm mt-5">
+            <p className="text-white/55 text-sm mt-2">
               💬 Chat langsung · Respons cepat · Free konsultasi
             </p>
           </motion.div>
