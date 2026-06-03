@@ -178,8 +178,8 @@ export default function GantunganTasPage() {
 
   const namaClean = nama.trim().toUpperCase().replace(/[^A-Z0-9 ]/g, "");
   const hurufCount = namaClean.replace(/ /g, "").length;
-  const validCount = Math.max(hurufCount, 3);
-  const totalHarga = validCount * 15000;
+  const validCount = Math.max(hurufCount, 2);
+  const totalHarga = validCount * 5000;
 
   useEffect(() => {
     const fbq = (window as Window & { fbq?: Function }).fbq;
@@ -208,7 +208,7 @@ export default function GantunganTasPage() {
         content_name: "Clickable Gantungan Tas Custom Nama",
         content_type: "product",
         currency: "IDR",
-        value: validCount * 15000,
+        value: validCount * 5000,
         num_items: 1,
       });
       fbq?.("trackCustom", "WhatsAppClick", {
@@ -221,7 +221,7 @@ export default function GantunganTasPage() {
         content_id: "clickable-gantungan-tas",
         content_name: "Clickable Gantungan Tas Custom Nama",
         currency: "IDR",
-        value: validCount * 15000,
+        value: validCount * 5000,
       });
     };
     document.addEventListener("click", onWAClick);
@@ -311,14 +311,11 @@ export default function GantunganTasPage() {
               variants={fadeUp} initial="hidden" animate="show" transition={{ delay: 0.35 }}
             >
               <a
-                href={WA_DEFAULT}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 font-black text-black rounded-full px-8 py-4 shadow-2xl transition-transform hover:scale-105 active:scale-95"
-                style={{ background: "#FFE600", boxShadow: "0 10px 36px rgba(255,230,0,0.55)", fontFamily: "var(--font-nunito)" }}
+                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=10000"
+                className="inline-flex items-center gap-3 font-black text-white rounded-full px-8 py-4 shadow-2xl transition-transform hover:scale-105 active:scale-95"
+                style={{ background: "linear-gradient(135deg,#7c3aed,#db2777)", boxShadow: "0 10px 36px rgba(123,47,190,0.45)", fontFamily: "var(--font-nunito)" }}
               >
-                <WhatsAppIcon className="w-5 h-5 text-green-600" />
-                Order Custom Sekarang!
+                🔥 Pesan Sekarang — Rp 5.000/huruf
               </a>
               <p className="text-center text-sm text-white/70 mt-3">
                 atau{" "}
@@ -327,6 +324,17 @@ export default function GantunganTasPage() {
                   className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100"
                 >
                   bayar via QRIS 💳
+                </a>
+              </p>
+              <p className="text-center text-sm text-white/50 mt-1">
+                Ada pertanyaan?{" "}
+                <a
+                  href={WA_DEFAULT}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-semibold hover:underline"
+                >
+                  Chat WA 📱
                 </a>
               </p>
             </motion.div>
@@ -528,33 +536,30 @@ export default function GantunganTasPage() {
                       </p>
                       <p className="text-gray-400 text-xs">
                         {hurufCount < 3
-                          ? `Min. 3 huruf (${hurufCount} huruf → dihitung 3 huruf)`
+                          ? `Min. 2 huruf (${hurufCount} huruf → dihitung ${validCount} huruf)`
                           : `${hurufCount} huruf × Rp 15.000`}
                       </p>
                     </>
                   ) : (
-                    <p className="text-gray-400 text-sm">Mulai dari <strong className="text-purple-600">Rp 45.000</strong> (min. 3 huruf)</p>
+                    <p className="text-gray-400 text-sm">Mulai dari <strong className="text-purple-600">Rp 10.000</strong> (min. 2 huruf)</p>
                   )}
                 </div>
 
                 <a
-                  href={namaClean ? buildWaLink(namaClean, selectedColor.name) : selectedColor.wa}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${totalHarga}&nama=${namaClean || ""}&warna=${selectedColor.name}`}
                   className="flex items-center gap-2 font-black text-white rounded-full px-7 py-4 text-sm shadow-xl transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
                   style={{
-                    background: "linear-gradient(135deg,#25D366,#128C7E)",
-                    boxShadow: "0 8px 28px rgba(37,211,102,0.45)",
+                    background: "linear-gradient(135deg,#7c3aed,#db2777)",
+                    boxShadow: "0 8px 28px rgba(123,47,190,0.45)",
                     fontFamily: "var(--font-nunito)",
                   }}
                 >
-                  <WhatsAppIcon className="w-5 h-5" />
-                  Order Sekarang!
+                  🔥 Pesan Sekarang
                 </a>
                 <p className="text-center text-xs text-gray-400 mt-2">
                   atau{" "}
                   <a
-                    href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${validCount * 15000}&nama=${namaClean || ""}&warna=${selectedColor.name}`}
+                    href={`/checkout?produk=Clickable%20Gantungan%20Tas&harga=${totalHarga}&nama=${namaClean || ""}&warna=${selectedColor.name}`}
                     className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800"
                   >
                     bayar via QRIS 💳
@@ -777,12 +782,13 @@ export default function GantunganTasPage() {
               >
                 Rp 15.000
               </p>
-              <p className="text-white/80 text-lg mb-10">per huruf · minimum 3 huruf</p>
+              <p className="text-white/80 text-lg mb-10">per huruf · minimum 2 huruf</p>
 
               {/* Example price table */}
               <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
                 {[
-                  { label: "3 huruf", price: "Rp 45.000", chars: ["A", "Y", "U"] },
+                  { label: "2 huruf", price: "Rp 10.000", chars: ["A", "Y"] },
+                  { label: "4 huruf", price: "Rp 20.000", chars: ["A", "Y", "U", "N"] },
                   { label: "4 huruf", price: "Rp 60.000", chars: ["C", "A", "C", "A"] },
                   { label: "5 huruf", price: "Rp 75.000", chars: ["N", "A", "D", "I", "A"] },
                 ].map((item) => (
@@ -823,7 +829,7 @@ export default function GantunganTasPage() {
               }}
             >
               <WhatsAppIcon className="w-6 h-6" />
-              Tanya & Order Sekarang!
+              Chat Konsultasi 💬
             </a>
             <p className="text-gray-400 text-sm mt-4">💬 Respons cepat · Bebas konsultasi</p>
           </motion.div>
@@ -880,21 +886,18 @@ export default function GantunganTasPage() {
             </p>
 
             <motion.a
-              href={WA_DEFAULT}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=10000"
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 font-black text-lg rounded-full px-10 py-5 bg-white text-black shadow-2xl hover:bg-yellow-300 transition-colors"
+              className="inline-flex items-center gap-3 font-black text-lg rounded-full px-10 py-5 bg-white text-purple-700 shadow-2xl hover:bg-yellow-300 transition-colors"
               style={{ fontFamily: "var(--font-nunito)", boxShadow: "0 12px 48px rgba(0,0,0,0.25)" }}
             >
-              <WhatsAppIcon className="w-6 h-6 text-green-500" />
-              Order via WhatsApp Sekarang!
+              🔥 Pesan Sekarang
             </motion.a>
             <p className="text-center text-sm text-white/60 mt-2">
               atau{" "}
               <a
-                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=45000"
+                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=10000"
                 className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100"
               >
                 bayar via QRIS 💳
@@ -902,7 +905,8 @@ export default function GantunganTasPage() {
             </p>
 
             <p className="text-white/55 text-sm mt-2">
-              💬 Chat langsung · Respons cepat · Free konsultasi
+              💬 Ada pertanyaan?{}
+              <a href={WA_DEFAULT} target="_blank" rel="noopener noreferrer" className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100">Chat WA 📱</a>
             </p>
           </motion.div>
         </div>

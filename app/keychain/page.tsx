@@ -179,15 +179,18 @@ export default function KeychainPage() {
                 🚚 Gratis Ongkir Pulau Jawa!
               </span>
               <a
-                href={waLink("Halo Jogpro! Saya mau pesan Phone Stand Keychain")}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/checkout?produk=Phone%20Stand%20Keychain&harga=15000"
                 className="inline-flex items-center gap-2 font-black text-black rounded-full px-8 py-4 shadow-2xl transition-transform hover:scale-105"
                 style={{ background: "#FFE600", fontFamily: "var(--font-nunito)" }}
               >
-                <WhatsAppIcon className="w-5 h-5 text-green-600" />
-                Order Sekarang — Rp 15.000
+                🛒 Pesan Sekarang — Rp 15.000
               </a>
+              <p className="text-center text-sm text-yellow-200/70 mt-2">
+                atau{" "}
+                <a href="/checkout?produk=Phone%20Stand%20Keychain&harga=15000" className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100">bayar via QRIS 💳</a>
+                {" · "}
+                <a href={waLink("Halo Jogpro! Saya mau pesan Phone Stand Keychain")} target="_blank" rel="noopener noreferrer" className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100">Ada pertanyaan? Chat WA 💬</a>
+              </p>
             </motion.div>
           </div>
 
@@ -272,13 +275,17 @@ export default function KeychainPage() {
                   </h3>
                   <p className="text-gray-400 text-sm mb-5">2-in-1 · 7 × 2.5 × 0.5 cm · Ring metal</p>
                   <a
-                    href={waLink(p.text)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/checkout?produk=Phone%20Stand%20Keychain&harga=15000"
                     className="block text-center text-white font-black py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500"
                   >
                     Pilih Warna Ini 🛒
                   </a>
+                  <p className="text-center text-xs text-gray-400 mt-2">
+                    atau{" "}
+                    <a href="/checkout?produk=Phone%20Stand%20Keychain&harga=15000" className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800">bayar via QRIS 💳</a>
+                    {" · "}
+                    <a href={waLink(p.text)} target="_blank" rel="noopener noreferrer" className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800">Chat WA 💬</a>
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -433,14 +440,17 @@ export default function KeychainPage() {
             7 × 2.5 × 0.5 cm · Ring metal · Stand portrait & landscape
           </p>
           <a
-            href={waLink("Halo Jogpro! Saya mau pesan Phone Stand Keychain")}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/checkout?produk=Phone%20Stand%20Keychain&harga=15000"
             className="inline-flex items-center gap-3 font-black text-lg rounded-full px-10 py-5 bg-white hover:bg-yellow-300 text-black shadow-2xl transition-colors"
           >
-            <WhatsAppIcon className="w-6 h-6 text-green-500" />
-            Order via WhatsApp
+            🛒 Pesan Sekarang
           </a>
+          <p className="text-center text-sm text-gray-300 mt-2">
+            atau{" "}
+            <a href="/checkout?produk=Phone%20Stand%20Keychain&harga=15000" className="text-purple-300 font-bold underline underline-offset-2 hover:text-purple-200">bayar via QRIS 💳</a>
+            {" · "}
+            <a href={waLink("Halo Jogpro! Saya mau pesan Phone Stand Keychain")} target="_blank" rel="noopener noreferrer" className="text-purple-300 font-bold underline underline-offset-2 hover:text-purple-200">Ada pertanyaan? Chat WA 💬</a>
+          </p>
         </div>
       </section>
 
@@ -470,7 +480,7 @@ export default function KeychainPage() {
         }}
       >
         <WhatsAppIcon className="w-6 h-6" />
-        <span className="hidden sm:inline text-sm font-black">Order WhatsApp</span>
+        <span className="hidden sm:inline text-sm font-black">Chat Konsultasi</span>
       </motion.a>
     </main>
   );

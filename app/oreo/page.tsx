@@ -326,9 +326,7 @@ export default function Home() {
                 🚚 Gratis Ongkir!
               </span>
               <a
-                href={WA_DEFAULT}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/checkout?produk=Oreo%20Cable%20Winder&harga=20000"
                 className="inline-block font-black text-base text-black rounded-full px-8 py-4 shadow-2xl transition-transform hover:scale-105 active:scale-95"
                 style={{
                   background: "#FFE600",
@@ -336,8 +334,14 @@ export default function Home() {
                   fontFamily: "var(--font-nunito)",
                 }}
               >
-                🛒 Order Sekarang — Rp 20.000
+                🛒 Pesan Sekarang — Rp 20.000
               </a>
+              <p className="text-center text-sm text-yellow-200/70 mt-2">
+                atau{" "}
+                <a href="/checkout?produk=Oreo%20Cable%20Winder&harga=20000" className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100">bayar via QRIS 💳</a>
+                {" · "}
+                <a href={WA_DEFAULT} target="_blank" rel="noopener noreferrer" className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100">Ada pertanyaan? Chat WA 💬</a>
+              </p>
             </motion.div>
 
             <motion.div
@@ -516,9 +520,7 @@ export default function Home() {
                       🚚 Gratis Ongkir!
                     </span>
                     <a
-                      href={p.wa}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href="/checkout?produk=Oreo%20Cable%20Winder&harga=20000"
                       className="block text-center text-white font-black py-3 rounded-2xl text-sm transition-opacity hover:opacity-90"
                       style={{
                         background: p.btnGradient,
@@ -527,6 +529,12 @@ export default function Home() {
                     >
                       Pilih Warna Ini 🛒
                     </a>
+                    <p className="text-center text-xs text-gray-400 mt-2">
+                      atau{" "}
+                      <a href="/checkout?produk=Oreo%20Cable%20Winder&harga=20000" className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800">bayar via QRIS 💳</a>
+                      {" · "}
+                      <a href={p.wa} target="_blank" rel="noopener noreferrer" className="text-purple-600 font-bold underline underline-offset-2 hover:text-purple-800">Chat WA 💬</a>
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -784,9 +792,7 @@ export default function Home() {
                   🚚 Gratis Ongkir!
                 </span>
                 <motion.a
-                  href={WA_DEFAULT}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/checkout?produk=Oreo%20Cable%20Winder&harga=20000"
                   whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-3 font-black text-lg rounded-full px-10 py-5 shadow-2xl transition-colors bg-white hover:bg-yellow-400"
@@ -796,9 +802,14 @@ export default function Home() {
                     boxShadow: "0 12px 48px rgba(0,0,0,0.25)",
                   }}
                 >
-                  <WhatsAppIcon className="w-6 h-6 text-green-500" />
-                  Order via WhatsApp
+                  🛒 Pesan Sekarang
                 </motion.a>
+                <p className="text-center text-sm text-yellow-200/70 mt-3">
+                  atau{" "}
+                  <a href="/checkout?produk=Oreo%20Cable%20Winder&harga=20000" className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100">bayar via QRIS 💳</a>
+                  {" · "}
+                  <a href={WA_DEFAULT} target="_blank" rel="noopener noreferrer" className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100">Ada pertanyaan? Chat WA 💬</a>
+                </p>
               </div>
             </div>
 
@@ -844,7 +855,7 @@ export default function Home() {
       >
         <WhatsAppIcon className="w-6 h-6 flex-shrink-0" />
         <span className="hidden sm:inline text-sm font-black">
-          Order WhatsApp
+          Chat Konsultasi
         </span>
       </motion.a>
     </div>
