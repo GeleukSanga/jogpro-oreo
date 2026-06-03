@@ -178,7 +178,7 @@ export default function GantunganTasPage() {
 
   const namaClean = nama.trim().toUpperCase().replace(/[^A-Z0-9 ]/g, "");
   const hurufCount = namaClean.replace(/ /g, "").length;
-  const validCount = Math.max(hurufCount, 2);
+  const validCount = Math.max(hurufCount, 3);
   const totalHarga = validCount * 5000;
 
   useEffect(() => {
@@ -297,7 +297,7 @@ export default function GantunganTasPage() {
               className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
             >
               <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-bold text-sm text-white" style={{ background: "rgba(255,255,255,0.18)" }}>
-                💰 Mulai Rp 10.000
+                💰 Mulai Rp 15.000
               </span>
               <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-bold text-sm text-white" style={{ background: "rgba(255,255,255,0.18)" }}>
                 🎨 6 Pilihan Warna
@@ -311,7 +311,7 @@ export default function GantunganTasPage() {
               variants={fadeUp} initial="hidden" animate="show" transition={{ delay: 0.35 }}
             >
               <a
-                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=10000"
+                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=15000"
                 className="inline-flex items-center gap-3 font-black text-white rounded-full px-8 py-4 shadow-2xl transition-transform hover:scale-105 active:scale-95"
                 style={{ background: "linear-gradient(135deg,#7c3aed,#db2777)", boxShadow: "0 10px 36px rgba(123,47,190,0.45)", fontFamily: "var(--font-nunito)" }}
               >
@@ -536,12 +536,12 @@ export default function GantunganTasPage() {
                       </p>
                       <p className="text-gray-400 text-xs">
                         {hurufCount < 3
-                          ? `Min. 2 huruf (${hurufCount} huruf → dihitung ${validCount} huruf)`
+                          ? `Min. 3 huruf (${hurufCount} huruf → dihitung ${validCount} huruf)`
                           : `${hurufCount} huruf × Rp 5.000`}
                       </p>
                     </>
                   ) : (
-                    <p className="text-gray-400 text-sm">Mulai dari <strong className="text-purple-600">Rp 10.000</strong> (min. 2 huruf)</p>
+                    <p className="text-gray-400 text-sm">Mulai dari <strong className="text-purple-600">Rp 10.000</strong> (min. 3 huruf)</p>
                   )}
                 </div>
 
@@ -710,12 +710,12 @@ export default function GantunganTasPage() {
               >
                 Rp 5.000
               </p>
-              <p className="text-white/80 text-lg mb-10">per huruf · minimum 2 huruf</p>
+              <p className="text-white/80 text-lg mb-10">per huruf · minimum 3 huruf</p>
 
               {/* Example price table */}
               <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
                 {[
-                  { label: "2 huruf", price: "Rp 10.000", chars: ["A", "Y"] },
+                  { label: "3 huruf", price: "Rp 15.000", chars: ["A", "Y", "U"] },
                   { label: "4 huruf", price: "Rp 20.000", chars: ["A", "Y", "U", "N"] },
                   { label: "4 huruf", price: "Rp 60.000", chars: ["C", "A", "C", "A"] },
                   { label: "5 huruf", price: "Rp 75.000", chars: ["N", "A", "D", "I", "A"] },
@@ -810,11 +810,11 @@ export default function GantunganTasPage() {
 
             <p className="text-white/80 text-xl mb-10">
               Custom nama, warna favorit, bisa diklik-klik!<br />
-              <span className="font-black">Mulai Rp 10.000 aja!</span>
+              <span className="font-black">Mulai Rp 15.000 aja!</span>
             </p>
 
             <motion.a
-              href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=10000"
+              href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=15000"
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 font-black text-lg rounded-full px-10 py-5 bg-white text-purple-700 shadow-2xl hover:bg-yellow-300 transition-colors"
@@ -825,7 +825,7 @@ export default function GantunganTasPage() {
             <p className="text-center text-sm text-white/60 mt-2">
               atau{" "}
               <a
-                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=10000"
+                href="/checkout?produk=Clickable%20Gantungan%20Tas&harga=15000"
                 className="text-yellow-300 font-bold underline underline-offset-2 hover:text-yellow-100"
               >
                 bayar via QRIS 💳
