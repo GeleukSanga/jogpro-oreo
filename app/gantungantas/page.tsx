@@ -297,7 +297,7 @@ export default function GantunganTasPage() {
               className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
             >
               <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-bold text-sm text-white" style={{ background: "rgba(255,255,255,0.18)" }}>
-                💰 Mulai Rp 45.000
+                💰 Mulai Rp 10.000
               </span>
               <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-bold text-sm text-white" style={{ background: "rgba(255,255,255,0.18)" }}>
                 🎨 6 Pilihan Warna
@@ -377,7 +377,7 @@ export default function GantunganTasPage() {
               className="absolute -top-5 -right-5 font-black text-center text-sm leading-snug px-4 py-3 rounded-full shadow-xl"
               style={{ background: "#FFE600", color: "#000", fontFamily: "var(--font-nunito)" }}
             >
-              Rp 15.000<br />per huruf!
+              Rp 5.000<br />per huruf!
             </motion.div>
             {/* Keycap badge */}
             <motion.div
@@ -537,7 +537,7 @@ export default function GantunganTasPage() {
                       <p className="text-gray-400 text-xs">
                         {hurufCount < 3
                           ? `Min. 2 huruf (${hurufCount} huruf → dihitung ${validCount} huruf)`
-                          : `${hurufCount} huruf × Rp 15.000`}
+                          : `${hurufCount} huruf × Rp 5.000`}
                       </p>
                     </>
                   ) : (
@@ -780,7 +780,7 @@ export default function GantunganTasPage() {
                 className="font-black leading-none mb-2"
                 style={{ fontSize: "clamp(3.5rem,10vw,6rem)", fontFamily: "var(--font-nunito)" }}
               >
-                Rp 15.000
+                Rp 5.000
               </p>
               <p className="text-white/80 text-lg mb-10">per huruf · minimum 2 huruf</p>
 
@@ -882,7 +882,7 @@ export default function GantunganTasPage() {
 
             <p className="text-white/80 text-xl mb-10">
               Custom nama, warna favorit, bisa diklik-klik!<br />
-              <span className="font-black">Mulai Rp 45.000 aja!</span>
+              <span className="font-black">Mulai Rp 10.000 aja!</span>
             </p>
 
             <motion.a
