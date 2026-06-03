@@ -15,6 +15,7 @@ function CheckoutForm() {
 
   const [nama, setNama] = useState(namaParam);
   const [wa, setWa] = useState("");
+  const [alamat, setAlamat] = useState("");
   const [warna, setWarna] = useState(warnaParam);
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -52,6 +53,7 @@ function CheckoutForm() {
     const formData = new FormData();
     formData.append("nama", nama);
     formData.append("wa", wa.replace(/\s/g, ""));
+    formData.append("alamat", alamat);
     formData.append("produk", produk);
     formData.append("warna", warna);
     formData.append("harga", String(hargaParam));
@@ -221,6 +223,20 @@ function CheckoutForm() {
                 placeholder="Contoh: 08123456789"
                 required
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-gray-600 mb-1">
+                Alamat Pengiriman <span className="text-red-400">*</span>
+              </label>
+              <textarea
+                value={alamat}
+                onChange={(e) => setAlamat(e.target.value)}
+                placeholder="Contoh: Jl. Mawar No. 12, RT 03 RW 05, Kec. Lowokwaru, Malang, Jawa Timur 65141"
+                required
+                rows={3}
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm resize-none"
               />
             </div>
 
