@@ -181,6 +181,57 @@ function CheckoutForm() {
           <p className="text-center text-xs text-gray-400 mt-1">
             Merchant: jogpro_3d (ShopeePay)
           </p>
+          {/* Download QRIS Button */}
+          <div className="flex justify-center mt-4">
+            <a
+              href="https://res.cloudinary.com/dejoaryri/image/upload/v1780454390/jogpro_qris.jpg"
+              download="QRIS_Jogpro.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-50 text-purple-700 font-semibold text-sm hover:bg-purple-100 transition-all border border-purple-200 hover:scale-[1.02]"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+              </svg>
+              Download QRIS
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Transfer BCA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100"
+        >
+          <h2 className="font-black text-lg text-gray-800 mb-2">🏦 Atau Transfer BCA</h2>
+          <p className="text-sm text-gray-500 mb-4">
+            Transfer sejumlah <b className="text-purple-700">Rp {hargaParam.toLocaleString("id-ID")}</b> ke rekening berikut:
+          </p>
+          <div className="bg-purple-50 rounded-xl p-4 flex items-center justify-between gap-3">
+            <div>
+              <p className="text-xs text-gray-500 mb-0.5">BCA</p>
+              <p className="font-black text-xl text-gray-800 tracking-widest">7805380306</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard.writeText("7805380306");
+                const el = document.getElementById("copy-notif");
+                if (el) { el.classList.remove("opacity-0"); setTimeout(() => el.classList.add("opacity-0"), 1500); }
+              }}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-purple-200 text-purple-700 font-semibold text-sm hover:bg-purple-100 transition-all hover:scale-[1.05] shrink-0"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              Salin
+            </button>
+          </div>
+          <p id="copy-notif" className="text-center text-xs text-green-600 font-semibold mt-2 opacity-0 transition-opacity duration-300">
+            ✅ Nomor rekening disalin!
+          </p>
         </motion.div>
 
         {/* Form Konfirmasi */}
